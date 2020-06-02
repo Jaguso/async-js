@@ -19,7 +19,7 @@ function createPost(post) {
     setTimeout(() => {
       posts.push(post);
 
-      const error = true;
+      const error = false;
 
       if (!error) {
         resolve();
@@ -34,11 +34,23 @@ function createPost(post) {
 //   .then(getPosts)
 //   .catch(err => console.log(err));
 
-// Promise.all
-const promise1 = Promise.resolve('Hello World');
-const promise2 = 10;
-const promise3 = new Promise((resolve, reject) => setTimeout(resolve, 2000, 'Goodbye'));
-const promise4 = fetch('https://jsonplaceholder.typicode.com/users').then(res => res.json());
 
-// This prints inside an array the values of all promises
-Promise.all([promise1, promise2, promise3, promise4]).then(values => console.log(values));
+// // Promise.all
+// const promise1 = Promise.resolve('Hello World');
+// const promise2 = 10;
+// const promise3 = new Promise((resolve, reject) => setTimeout(resolve, 2000, 'Goodbye'));
+// const promise4 = fetch('https://jsonplaceholder.typicode.com/users').then(res => res.json());
+
+// // This prints inside an array the values of all promises
+// Promise.all([promise1, promise2, promise3, promise4]).then(values => console.log(values));
+
+
+
+// Async/Await
+async function init() {
+  // This code watis for createPost, then executes getPosts()
+  await createPost({ title: 'Post Three', body: 'This is post three' });
+  getPosts();
+}
+
+init();
