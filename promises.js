@@ -46,11 +46,20 @@ function createPost(post) {
 
 
 
-// Async/Await
-async function init() {
-  // This code watis for createPost, then executes getPosts()
-  await createPost({ title: 'Post Three', body: 'This is post three' });
-  getPosts();
+// // Async/Await
+// async function init() {
+//   // This code watis for createPost, then executes getPosts()
+//   await createPost({ title: 'Post Three', body: 'This is post three' });
+//   getPosts();
+// }
+
+// init();
+
+// Async/Await fetch
+async function fetchUsers() {
+  const res = await fetch('https://jsonplaceholder.typicode.com/users');
+  const data = await res.json();
+  console.log(data);
 }
 
-init();
+fetchUsers();
